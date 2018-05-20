@@ -20,26 +20,26 @@ public class MemeArrowsListener {
 				return;
 			}
 			
-			// >implying
 			Text om = event.getOriginalMessage();
 			List<Text> components = om.getChildren();
-			Text.Builder tb = Text.builder();
-			for (int i = 0; i < components.size() - 1; i++) {
-				tb.append(components.get(i));
-			}
-			
-			// We have to do the last one separately.
 			Text last = components.get(components.size() - 1);
+			
+			// >implying
 			if (last.toPlain().startsWith(">")) {
+				
+				Text.Builder tb = Text.builder();
+				for (int i = 0; i < components.size() - 1; i++) {
+					tb.append(components.get(i));
+				}
+				
 				Text.Builder greener = Text.builder();
 				greener.color(TextColors.GREEN);
 				greener.append(Text.of(last.toPlain()));
 				tb.append(greener.build());
-			} else {
-				tb.append(last);
+				
+				event.setMessage(tb.build());
+				
 			}
-			
-			event.setMessage(tb.build());
 			
 		}
 		
