@@ -45,7 +45,7 @@ public class BapUtils {
 	@Listener
 	public void onInit(GameInitializationEvent event) throws Exception {
 		
-		this.logger.info("ok by cheese");
+		this.logger.info("Bapcraft: What is dead may never die.");
 		
 		// Load config.
 		Asset cfgAsset = this.game.getAssetManager().getAsset(this, "default.conf").get();
@@ -67,8 +67,7 @@ public class BapUtils {
 		}
 		
 		// Setup listeners.
-		//this.listener = new FcListener(this.config, this.game, this.logger);
-		//this.eventManager.registerListeners(this, this.listener);
+		this.eventManager.registerListeners(this, new MemeArrowsListener());
 		
 	}
 	
